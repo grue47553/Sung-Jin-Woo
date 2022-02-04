@@ -71,24 +71,31 @@ def get_readable_time(seconds: int) -> str:
     return ping_time
 
 
-PM_START_TEXT = """Heyo Watashi Nico Desu, I am Groups Management Bot !! I can Help You Manage Your Group for you!!, send /help for command list...[.](https://telegra.ph/file/36f504f4c0c2f0f138806.jpg)"""
-
+PM_START_TEXT = """
+𝐇𝐢, 𝐈 𝐚𝐦 𝐉𝐢𝐧 𝐖𝐨𝐨 𝐓𝐡𝐞 𝐌𝐨𝐧𝐚𝐫𝐜𝐡 𝐎𝐟 𝐒𝐡𝐚𝐝𝐨𝐰𝐬.
+ 𝐈 𝐰𝐢𝐥𝐥 𝐛𝐞 𝐩𝐫𝐨𝐭𝐞𝐜𝐭𝐢𝐧𝐠 𝐲𝐨𝐮𝐫 𝐠𝐫𝐨𝐮𝐩 𝐟𝐫𝐨𝐦 𝐌𝐨𝐧𝐬𝐭𝐞𝐫𝐬 𝐨𝐟 𝐝𝐮𝐧𝐠𝐞𝐨𝐧 𝐰𝐢𝐭𝐡 𝐦𝐲 𝐊𝐚𝐦𝐢𝐬𝐡'𝐬 𝐖𝐫𝐚𝐭𝐡 
+    ✧  -------------------------------  
+𝐖𝐚𝐧𝐭 𝐭𝐨 𝐬𝐞𝐞 𝐦𝐲 𝐚𝐛𝐢𝐥𝐢𝐭𝐢𝐞𝐬? 
+  𝐭𝐲𝐩𝐞 /help 
+ --------------------------------[.](https://telegra.ph/file/541d8610220dbc94f590d.jpg)
+"""
 HELP_STRINGS = """
-Hey there, I'm Nico Robins!
+Hey I am Jinwoo!
 To make me functional, make sure that i have enough rights in your group.
 Helpful commands:
 - /start: Starts me! You've probably already used this.
 - /help: Sends this message; I'll tell you more about myself!
 - /donate: Gives you info on how to support me and my creator.
+Owner- @zerohisoka
 
 All commands can be used with the following: / !
-List of all the Modules:
+List of all the Modules: [.](https://telegra.ph/file/c5248c36097725bf00358.mp4)
 """.format(
     dispatcher.bot.first_name,
     "" if not ALLOW_EXCL else "📝All commands can either be used with / or !.",
 )
 
-EREN_IMG = "https://telegra.ph/file/3e06334617f26c66c4f2b.jpg"
+EREN_IMG = "https://telegra.ph/file/541d8610220dbc94f590d.jpg"
 
 DONATE_STRING = """Durov Is my Cousin By The Way.."""
 
@@ -207,7 +214,7 @@ def start(update: Update, context: CallbackContext):
                     [
                         [
                             InlineKeyboardButton(
-                                text="➕ ᴀᴅᴅ ᴍᴇ! ➕",
+                                text="➕ Add me in your Groups ➕",
                                 url="t.me/{}?startgroup=true".format(
                                     context.bot.username,
                                 ),
@@ -215,28 +222,28 @@ def start(update: Update, context: CallbackContext):
                         ],
                         [
                             InlineKeyboardButton(
-                                text="⛩ sᴜᴘᴘᴏʀᴛ ⛩",
+                                text="♠️ Support ♦️",
                                 url=f"https://t.me/{SUPPORT_CHAT}",
                             ),
                             InlineKeyboardButton(
-                                text="🚦 ᴜᴘᴅᴀᴛᴇs 🚦",
-                                url="https://t.me/NicoRobin_updates",
+                                text="💜 Anime Chat❤️",
+                                url="https://t.me/straydogs",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text=" ᴡɪᴢᴀʀᴅ ",
-                                url="https://t.me/NicoRobin_updates/5",
+                                text=" ♦️ Disasters ♠️ ",
+                                url="https://t.me/jinwooXupdates/2",
                             ),
                             InlineKeyboardButton(
-                                text="ɢʀᴏᴜᴘ",
-                                url="https://t.me/The_loli_league/",
+                                text="♦️Join Our Fed♠️",
+                                url="https://t.me/ahjinwoo/",
                             ),
                         ],
                         [
                             InlineKeyboardButton(
-                                text="⚓️ ʜᴇʟᴘ ⚓️",
-                                url="https://t.me/NicoRobin_robot?start=help",
+                                text="♦️ Help ♠️",
+                                url="https://t.me/Roronoazorobot?start=help",
                             ),
                         ],
                     ],
@@ -244,7 +251,7 @@ def start(update: Update, context: CallbackContext):
             )
     else:
         update.effective_message.reply_text(
-            "A Light Of Revolution Never Sleeps!\n<b>Haven't slept since:</b> <code>{}</code>".format(
+            "I am awake Baka!\n<b>Haven't slept since:</b> <code>{}</code>".format(
                 uptime,
             ),
             parse_mode=ParseMode.HTML,
@@ -621,7 +628,7 @@ def main():
 
     if SUPPORT_CHAT is not None and isinstance(SUPPORT_CHAT, str):
         try:
-            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[I am now Alive!](https://telegra.ph/file/e11ced336019e2a887f07.jpg)", parse_mode=ParseMode.MARKDOWN)
+            dispatcher.bot.sendMessage(f"@{SUPPORT_CHAT}", "[I am now Alive!]", parse_mode=ParseMode.MARKDOWN)
         except Unauthorized:
             LOGGER.warning(
                 "Bot isnt able to send message to support_chat, go and check!",
