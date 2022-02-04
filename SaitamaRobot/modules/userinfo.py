@@ -287,26 +287,26 @@ def info(update: Update, context: CallbackContext):
     disaster_level_present = False
 
     if user.id == OWNER_ID:
-        text += "\n\nThe Disaster level of this person is <b>'Pirate King'</b>."
+        text += "\n\nThe Disaster level of this person is <b>'Immeasurable'</b>."
         disaster_level_present = True
     elif user.id in DEV_USERS:
-        text += "\n\nThis user is member of the 'Retarded Devs'."
+        text += "\n\nThis user is member of the 'Nation Levl Hunter'."
         disaster_level_present = True
     elif user.id in DRAGONS:
-        text += "\n\nThe Disaster level of this person is 'Yonkos'."
+        text += "\n\nThe Disaster level of this person is 'S-Rank Hunter'."
         disaster_level_present = True
     elif user.id in DEMONS:
-        text += "\n\nThe Disaster level of this person is 'Warlords'."
+        text += "\n\nThe Disaster level of this person is 'A-Rank Hunter'."
         disaster_level_present = True 
     elif user.id in TIGERS:
-        text += "\n\nThe Disaster level of this person is 'New generation'."
+        text += "\n\nThe Disaster level of this person is 'B-Rank Hunter'."
         disaster_level_present = True
     elif user.id in WOLVES:
-        text += "\n\nThe Disaster level of this person is 'Bounty Hunter'."
+        text += "\n\nThe Disaster level of this person is 'C-Rank Hunter '."
         disaster_level_present = True
 
     if disaster_level_present:
-        text += ' [<a href="https://t.me/NicoRobin_updates/5">🏴‍☠️</a>]'.format(
+        text += ' [<a href="https://t.me/jinwooXupdates/2">🏴‍☠️</a>]'.format(
             bot.username,
         )
 
