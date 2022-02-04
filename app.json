@@ -1,15 +1,15 @@
 {
-      "name": "Jinwoo_BOT",
+      "name": "Boa Hancock",
       "description": "An Anime themed Telegram group management bot.",
-      "logo": "https://telegra.ph/file/811f02b5ca1fcc3e72915.jpg", 
       "keywords": [
          "telegram",
          "anime",
          "group",
          "manager",
-         "Saitama"
+         "Eren"
       ],   
-   "repository": "https://github.com/Nchuuya/Xjin",
+  "logo":    "https://telegra.ph/file/a0d48e4db3c62e23c543f.jpg",
+ "repository": "https://github.com/zerohisoka/Boa-Hancock",
    "addons": [
       {
          "options": {
@@ -37,7 +37,7 @@
       "SQLALCHEMY_DATABASE_URI": {
          "description": "Your postgres sql db, empty this field if you dont have one.",
          "required": false,
-         "value": "sqldbtype://username:pw@hostname:port/db_name"
+         "value": ""
       },      
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
@@ -49,9 +49,9 @@
          "value": "zerohisoka"
       },
       "SUPPORT_CHAT": {
-         "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah. If this ever points to saitama support than consider you made an enemy.",
+         "description": "Your Telegram support group chat username where your users will go and bother you with shit But be like: MyGroupChatUsernameBlah.",
          "required": true,
-         "value": "JinwooXsupport"
+         "value": "jinwooXsupport"
       },
       "EVENT_LOGS": {
          "description": "Event logs channel to note down important bot level events, recommend to make this public. ex: '-123456'",
@@ -68,13 +68,14 @@
          "required": true,
          "value": "5AIK1CWTAG53UEJR"
       },
+
       "TIME_API_KEY": {
          "description": "Required for timezone information. Get yours from https://timezonedb.com/api",
          "required": true,
          "value": "-xyz"
       },
       "DEV_USERS": {
-         "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and would come and bother Saitama support then keep the current ID's here at they are and add yours.",
+         "description": "ID of users who are Devs of your bot (can use /py etc.). If you are a noob and would come and bother Eren support then keep the current ID's here at they are and add yours.",
          "required": false,
          "value": "5083917315"
       },
@@ -82,7 +83,8 @@
          "description": "Spamwatch API Token, Get one from @SpamWatchBot.",
          "required": false,
          "value": "D4_c3kfPnSAnnBECrZbRe1PQlzyTZ3AbxQFfBT~bh6UVZdrhGVOnQK8lye4lNJGL"
-      }, 
+      },
+ 
       "STRICT_GBAN": {
          "description": "Enforce gbans across new groups as well as old groups. When a gbanned user talks, he will be banned.",
          "value": "True"
@@ -90,15 +92,15 @@
       "DRAGONS": {
          "description": "A space separated list of user IDs who you want to assign as sudo users.",
          "required": false,
-         "value": ""
+         "value": " "
       },
       "DEMONS": {
          "description": "A space separated list of user IDs who you wanna assign as support users(gban perms only).",
          "required": false,
          "value": ""
-      },
+      }, 
       "TIGERS": {
-         "description": "A space separated list of user IDs who you wanna assign as tiger users.",
+         "description": "A space separated list of user IDs who you wanna assign as tiger users."
          "required": false,
          "value": ""
       },
@@ -116,10 +118,10 @@
          "required": false,
          "value": ""
       },
-      "PORT": {
+      "INFOPIC": {
          "description": "Port to use for your webhooks. Better leave this as it is on heroku",
          "required": false,
-         "value": ""
+         "value": "True"
       },
       "URL": {
          "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
@@ -140,24 +142,49 @@
          "description": "Set this to True if you want ! to be a command prefix along with /. Recommended is True",
          "value": "True"
       },
-      "INFOPIC": {
+      "DONATION_LINK": {
          "description": "Optional: link where you would like to receive donations. If you are a noob, better leave it linking to paul",
          "required": false,
-         "value": "True"
+         "value": "https://www.paypal.me/"
       },
       "DEL_CMDS": {
          "description": "Set this to True if you want to delete command messages from users who don't have the perms to run that command.",
          "value": "True"
+      },            
+      "BAN_STICKER": {
+         "description": "ID of the sticker you want to use when banning people.",
+         "required": false,
+         "value": ". "
       },
       "WALL_API": {
-      "description": "Make your bot talk using Intellivoid's chatbot API, get your key from https://coffeehouse.intellivoid.net/",
+         "description": "Required for wallpaper. Get your's from https://wall.alphacoders.com/",
          "required": false,
-         "value": "2455acab48f3a935a8e703e54e26d121"
-   },      
-      "MONGO_DB_URI": {
+         "value": ""
+       },
+       "MONGO_DB_URI": {
          "description": "Your Mongo Database Url, create it from https://cloud.mongodb.com/",
-         "required": True,
-         "value": "mongodb+srv://zerohisoka:kumar123@cluster0.8sg2a.mongodb.net/Cluster0?retryWrites=true&w=majority"
+         "required": true,
+         "value": "mongodb+srv://zerohisoka:kumar123@cluster0.8sg2a.mongodb.net/myFirstDatabase?retryWrites=true&w=majority"
+       }, 
+       "REDIS_URI": {
+         "description": "Redis Url create one from redislabs.com.",
+         "required": true,
+         "value": "zerohisoka:LA1GRXBtRHaWs050amDSKL5HdUjOM4Lk@redis-10921.c294.ap-northeast-1-2.ec2.cloud.redislabs.com:10921"
+       }, 
+       "APP_ID": {
+         "description": "API ID of 2nd telegram account if you dont have two accounts then use the same accounts API ID, but i recommend using 2nd accounts API ID",
+         "required": true,
+         "value": "8276637"
+      }, 
+      "APP_HASH": {
+         "description": " API HASH of 2nd telegram account if you dont two accounts then use the same accounts API HASH, but i recommend using 2nd accounts API HASH.",
+         "required": true,
+         "value": "c412d38a4ebcc2b32621a5c2be276d13"
+       }, 
+       "STRING_SESSION": {
+         "description": "Telethon String Session, create it from https://repl.it/@SpEcHiDe/GenerateStringSession .",
+         "required": true,
+         "value": "1BVtsOLYBuxe7zGTAMSE4_-dCB-jbyKfBkAF6bJyqUU8Ul9K5SUNBZJynOwLkh93CN6YyZ66zlGU5UucEUkE7XLpthuQLTEwdWiTt5WG5Wnq9pl8LwMeSGp5Yv-GJKjWvAybVGQNUu8oAxWoFINqYAKtUv5rfKRTrC2f8G-YjVpeAJo2jqJkMpHBvrYhuh-SNX-7A8y96nEfewl-Zay1P3L7DLf3SgWJDelfTYaXWM3LCn2M5xFbmk69f8vwY7SLXV-EA1xeZdRdHwP0vnWHTii1TuTdufhlAjASVtz_lYYSSQdTCJ7CPC0pIqqwXVaA7Zhgy7vMQHYBP26bPeeDQgSbSTb1ke3s="
       }
       
    }
