@@ -91,28 +91,28 @@ def gban(update: Update, context: CallbackContext):
 
     if int(user_id) in DEV_USERS:
         message.reply_text(
-            "That user is member of the WIZARD I can't act against our own.",
+            "That user is member of the Nation Level Hunter can't act against our own.",
         )
         return
 
     if int(user_id) in DRAGONS:
         message.reply_text(
-            "! Why are you guys turning on each other?",
+            "! Why are you guys turning on each other? Messing With  S-Rank Hunter!",
         )
         return
 
     if int(user_id) in DEMONS:
         message.reply_text(
-            "OOOH someone's trying to gban a Demon! *grabs popcorn*",
+            "OOOH someone's trying to gban a A-Rank Hunter! *grabs popcorn*",
         )
         return
 
     if int(user_id) in TIGERS:
-        message.reply_text("That's a Tiger Wizard! They cannot be banned!")
+        message.reply_text("That's a B-Rank Hunter They cannot be banned!")
         return
 
     if int(user_id) in WOLVES:
-        message.reply_text("That's a Wolfy! They cannot be banned!")
+        message.reply_text("That's a C-Rank! They cannot be banned!")
         return
 
     if user_id == bot.id:
@@ -164,7 +164,7 @@ def gban(update: Update, context: CallbackContext):
 
         return
 
-    message.reply_text("On it!")
+    message.reply_text("UwU matte kudasai.....")
 
     start_time = time.time()
     datetime_fmt = "%Y-%m-%dT%H:%M"
