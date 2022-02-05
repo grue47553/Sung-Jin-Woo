@@ -89,13 +89,13 @@ Helpful commands:
 Owner- @zerohisoka
 
 All commands can be used with the following: / !
-List of all the Modules: [.](https://telegra.ph/file/541d8610220dbc94f590d.jpg)
+List of all the Modules: [.](https://telegra.ph/file/c5248c36097725bf00358.mp4)
 """.format(
     dispatcher.bot.first_name,
     "" if not ALLOW_EXCL else "📝All commands can either be used with / or !.",
 )
 
-EREN_IMG = "https://telegra.ph/file/541d8610220dbc94f590d.jpg"
+EREN_IMG = "https://telegra.ph/file/c5248c36097725bf00358.mp4"
 
 DONATE_STRING = """Durov Is my Cousin By The Way.."""
 
@@ -243,7 +243,7 @@ def start(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(
                                 text="♦️ Help ♠️",
-                                url="https://t.me/@NicoRobin_strawhatbot?start=help",
+                                url="https://t.me/NicoRobin_strawhatbot?start=help",
                             ),
                         ],
                     ],
