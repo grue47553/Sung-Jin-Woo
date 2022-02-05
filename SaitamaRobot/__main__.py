@@ -77,7 +77,7 @@ PM_START_TEXT = """
     ✧  -------------------------------  
 𝐖𝐚𝐧𝐭 𝐭𝐨 𝐬𝐞𝐞 𝐦𝐲 𝐚𝐛𝐢𝐥𝐢𝐭𝐢𝐞𝐬? 
   𝐭𝐲𝐩𝐞 /help 
- --------------------------------[.](https://telegra.ph/file/541d8610220dbc94f590d.jpg)
+ --------------------------------[.](https://telegra.ph/file/c5248c36097725bf00358.mp4)
 """
 HELP_STRINGS = """
 Hey I am Jinwoo!
@@ -89,7 +89,7 @@ Helpful commands:
 Owner- @zerohisoka
 
 All commands can be used with the following: / !
-List of all the Modules: [.](https://telegra.ph/file/c5248c36097725bf00358.mp4)
+List of all the Modules: [.](https://telegra.ph/file/541d8610220dbc94f590d.jpg)
 """.format(
     dispatcher.bot.first_name,
     "" if not ALLOW_EXCL else "📝All commands can either be used with / or !.",
@@ -233,7 +233,7 @@ def start(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(
                                 text=" ♦️ Disasters ♠️ ",
-                                url="https://t.me/jinwooXupdates/2",
+                                url="https://t.me/JinwooXupdates/2",
                             ),
                             InlineKeyboardButton(
                                 text="♦️Join Our Fed♠️",
@@ -243,7 +243,7 @@ def start(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(
                                 text="♦️ Help ♠️",
-                                url="https://t.me/Roronoazorobot?start=help",
+                                url="https://t.me/@NicoRobin_strawhatbot?start=help",
                             ),
                         ],
                     ],
