@@ -34,10 +34,10 @@
          "required": true,
          "value": "c412d38a4ebcc2b32621a5c2be276d13"
       },    
-      "SQLALCHEMY_DATABASE_URI": {
+      "AI_API_KEY": {
          "description": "Your postgres sql db, empty this field if you dont have one.",
          "required": false,
-         "value": "sqldbtype://username:pw@hostname:port/db_name"
+         "value": "267599ad82bcce20daf95565be08071c392d9076eb2f442e1ddf9cabe412793d1750b0fb3e6852782b7272883b281bea85f5ffadc80a584749931267e7e03fc4"
       },      
       "OWNER_ID": {
          "description": "Your user ID as an integer.",
@@ -118,10 +118,10 @@
          "required": false,
          "value": ""
       },
-      "PORT": {
+      "AFK_USERS": {
          "description": "Port to use for your webhooks. Better leave this as it is on heroku",
          "required": false,
-         "value": ""
+         "value": "True"
       },
       "INFOPIC": {
          "description": "The Heroku App URL :-  https://<appname>.herokuapp.com/",
