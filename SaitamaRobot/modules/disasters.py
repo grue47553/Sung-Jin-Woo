@@ -555,7 +555,7 @@ def removetiger(update: Update, context: CallbackContext) -> str:
 @run_async
 @whitelist_plus
 def whitelistlist(update: Update, context: CallbackContext):
-    reply = "<b>Known Bounty Hunter Disasters 🐺:</b>\n"
+    reply = "<b>Known C-RANK HUNTER 🎗:</b>\n"
     bot = context.bot
     for each_user in WOLVES:
         user_id = int(each_user)
@@ -571,7 +571,7 @@ def whitelistlist(update: Update, context: CallbackContext):
 @run_async
 @whitelist_plus
 def tigerlist(update: Update, context: CallbackContext):
-    reply = "<b>Known New generation Disasters :</b>\n"
+    reply = "<b>Known B-RANK HUNTER 🥈:</b>\n"
     bot = context.bot
     for each_user in TIGERS:
         user_id = int(each_user)
@@ -582,12 +582,11 @@ def tigerlist(update: Update, context: CallbackContext):
             pass
     update.effective_message.reply_text(reply, parse_mode=ParseMode.HTML)
 
-
 @run_async
 @whitelist_plus
 def supportlist(update: Update, context: CallbackContext):
     bot = context.bot
-    reply = "<b>Known Warlords Disasters 👹:</b>\n"
+    reply = "<b>Known A-RANK HUNTER🥇:</b>\n"
     for each_user in DEMONS:
         user_id = int(each_user)
         try:
@@ -597,13 +596,12 @@ def supportlist(update: Update, context: CallbackContext):
             pass
     update.effective_message.reply_text(reply, parse_mode=ParseMode.HTML)
 
-
 @run_async
 @whitelist_plus
 def sudolist(update: Update, context: CallbackContext):
     bot = context.bot
     true_sudo = list(set(DRAGONS) - set(DEV_USERS))
-    reply = "<b>Known Wizard Yonkos:</b>\n"
+    reply = "<b>Known S-RANK Hunter🏅:</b>\n"
     for each_user in true_sudo:
         user_id = int(each_user)
         try:
@@ -640,10 +638,10 @@ Group admins/group owners do not need these commands.
  ╠ `/tigers`*:* Lists all Tigers disasters
  ╠ `/wolves`*:* Lists all Wolf disasters
  ╠ `/heroes`*:* Lists all Hero Association members
- ╠ `/adddragon`*:* Adds a user to Dragon
- ╠ `/adddemon`*:* Adds a user to Demon
- ╠ `/addtiger`*:* Adds a user to Tiger
- ╠ `/addwolf`*:* Adds a user to Wolf
+ ╠ `/S-RANK`*:* Lists all S-RANK HUNTRRS
+ ╠ `/A-RANK`*:* Lists all A-RANK HUNTERS
+ ╠ `/B-RANK`*:* Lists all B-RANK HUNTERS
+ ╠ `/C-RANK`*:* Lists all C-RANK HUNTERS
  ╚ `Add dev doesnt exist, devs should know how to add themselves`
  ╔ *Ping:*
  ╠ `/ping`*:* gets ping time of bot to telegram server
@@ -708,26 +706,23 @@ Group admins/group owners do not need these commands.
 Visit @{SUPPORT_CHAT} for more information.
 """
 
-DEV_HANDLER = CommandHandler(("addpiro", "addretard"), addpiro)
-SUDO_HANDLER = CommandHandler(("addsudo", "addyonko"), addsudo)
-SUPPORT_HANDLER = CommandHandler(("addsupport", "addwarlord"), addsupport)
-TIGER_HANDLER = CommandHandler(("addnewgen"), addtiger)
-WHITELIST_HANDLER = CommandHandler(("addbounty", "addwolf"), addwhitelist)
-
-RMPIRO_HANDLER = CommandHandler(("rmretard", "removesudo"), rmpiro)
-UNSUDO_HANDLER = CommandHandler(("removesudo", "removeyonko"), removesudo)
-UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removewarlord"),
+SUDO_HANDLER = CommandHandler(("addsudo", "addsrank"), addsudo)
+SUPPORT_HANDLER = CommandHandler(("addsupport", "addarank"), addsupport)
+TIGER_HANDLER = CommandHandler(("addbrank"), addtiger)
+WHITELIST_HANDLER = CommandHandler(("addwhitelist", "addcrank"), addwhitelist)
+UNSUDO_HANDLER = CommandHandler(("removesudo", "removebrank"), removesudo)
+UNSUPPORT_HANDLER = CommandHandler(("removesupport", "removearank"),
                                    removesupport)
-UNTIGER_HANDLER = CommandHandler(("removenewgen"), removetiger)
-UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removebounty"),
+UNTIGER_HANDLER = CommandHandler(("removebrank"), removetiger)
+UNWHITELIST_HANDLER = CommandHandler(("removewhitelist", "removecrank"),
                                      removewhitelist)
 
-WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "bountyhunters"],
+WHITELISTLIST_HANDLER = CommandHandler(["whitelistlist", "crank"],
                                        whitelistlist)
-TIGERLIST_HANDLER = CommandHandler(["newgens"], tigerlist)
-SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "warlords"], supportlist)
-SUDOLIST_HANDLER = CommandHandler(["sudolist", "yonkos"], sudolist)
-DEVLIST_HANDLER = CommandHandler(["devlist", "retards"], devlist)
+TIGERLIST_HANDLER = CommandHandler(["brank"], tigerlist)
+SUPPORTLIST_HANDLER = CommandHandler(["supportlist", "arank"], supportlist)
+SUDOLIST_HANDLER = CommandHandler(["sudolist", "srank"], sudolist)
+DEVLIST_HANDLER = CommandHandler(["devlist", "nationlevel"], devlist)
 
 dispatcher.add_handler(DEV_HANDLER)
 dispatcher.add_handler(SUDO_HANDLER)
