@@ -1,12 +1,12 @@
 import random, html
 
-from Sung-Jin-Woo import dispatcher
-from Sung-Jin-Woo.modules.disable import (
+from SaitamaRobot import dispatcher
+from SaitamaRobot.modules.disable import (
     DisableAbleCommandHandler,
     DisableAbleMessageHandler,
 )
-from Sung-Jin-Woo.modules.sql import afk_sql as sql
-from Sung-Jin-Woo.modules.users import get_user_id
+from SaitamaRobot.modules.sql import afk_sql as sql
+from SaitamaRobot.modules.users import get_user_id
 from telegram import MessageEntity, Update
 from telegram.error import BadRequest
 from telegram.ext import CallbackContext, Filters, MessageHandler, run_async
