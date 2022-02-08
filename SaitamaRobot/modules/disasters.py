@@ -161,6 +161,63 @@ def addsudo(update: Update, context: CallbackContext) -> str:
 
 
 @run_async
+@dev_plus
+@gloggable
+def addsudo(update: Update, context: CallbackContext) -> str:
+    message = update.effective_message
+    user = update.effective_user
+    chat = update.effective_chat
+    bot, args = context.bot, context.args
+    user_id = extract_user(message, args)
+    user_member = bot.getChat(user_id)
+    rt = ""
+
+    reply = check_user_id(user_id, bot)
+    if reply:
+        message.reply_text(reply)
+        return ""
+
+    with open(ELEVATED_USERS_FILE, 'r') as infile:
+        data = json.load(infile)
+
+    if user_id in DRAGONS:
+        message.reply_text("This member is already a S-RANK Hunter")
+        return ""
+
+    if user_id in DEMONS:
+        rt += "Requested HA to promote a A-RANK Hunter to S-RANK."
+        data['supports'].remove(user_id)
+        DEMONS.remove(user_id)
+
+    if user_id in WOLVES:
+        rt += "Requested HA to promote a C-RANK Hunter to S-RANK."
+        data['whitelists'].remove(user_id)
+        WOLVES.remove(user_id)
+
+    data['sudos'].append(user_id)
+    DRAGONS.append(user_id)
+
+    with open(ELEVATED_USERS_FILE, 'w') as outfile:
+        json.dump(data, outfile, indent=4)
+
+    update.effective_message.reply_text(
+        rt + "\nSuccessfully Promoted this user to S-RANK HUNTER".format(
+            user_member.first_name))
+
+    log_message = (
+        f"#SUDO\n"
+        f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
+        f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
+    )
+
+    if chat.type != 'private':
+        log_message = f"<b>{html.escape(chat.title)}:</b>\n" + log_message
+
+    return log_message
+
+
+
+@run_async
 @sudo_plus
 @gloggable
 def addsupport(
@@ -184,27 +241,27 @@ def addsupport(
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "Requested HA to demote this Admiral to Warlord"
+        rt += "Requested SG to deomote thisS-RANK Hunter to A-RANK"
         data['sudos'].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        message.reply_text("This user is already a Yonko.")
+        message.reply_text("This user is already a A-RANK Hunter.")
         return ""
 
     if user_id in WOLVES:
-        rt += "Requested HA to promote this New generations Disaster to Warlord"
+        rt += "Requested SG to promote this C-RANK Hunter to A-RANK"
         data['whitelists'].remove(user_id)
         WOLVES.remove(user_id)
 
     data['supports'].append(user_id)
-    DEMONS.append(user_id)
+    DEMONS.append(user_id
 
     with open(ELEVATED_USERS_FILE, 'w') as outfile:
         json.dump(data, outfile, indent=4)
 
     update.effective_message.reply_text(
-        rt + f"\n{user_member.first_name} was added as a Warlord!")
+        rt + f"\n{user_member.first_name} was added as a A-RANK HUNTER!")
 
     log_message = (
         f"#SUPPORT\n"
@@ -239,17 +296,17 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        rt += "This member is a Admiral, Demoting to New generations."
+        rt += "This member is a  S-RANK, Demoting to C-RANK."
         data['sudos'].remove(user_id)
         DRAGONS.remove(user_id)
 
     if user_id in DEMONS:
-        rt += "This user is already a Warlord, Demoting to New generations."
+        rt += "This user is already a S-RANK Hunter, Demoting to C-RANK."
         data['supports'].remove(user_id)
         DEMONS.remove(user_id)
 
     if user_id in WOLVES:
-        message.reply_text("This user is already a New generations.")
+        message.reply_text("This user is already a C-RANK Hunter.")
         return ""
 
     data['whitelists'].append(user_id)
@@ -260,72 +317,10 @@ def addwhitelist(update: Update, context: CallbackContext) -> str:
 
     update.effective_message.reply_text(
         rt +
-        f"\nSuccessfully promoted {user_member.first_name} to a New generations!")
+        f"\nSuccessfully promoted {user_member.first_name} to a C-RANK Hunter!")
 
     log_message = (
         f"#WHITELIST\n"
-        f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))} \n"
-        f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
-    )
-
-    if chat.type != 'private':
-        log_message = f"<b>{html.escape(chat.title)}:</b>\n" + log_message
-
-    return log_message
-
-
-@run_async
-@sudo_plus
-@gloggable
-def addtiger(update: Update, context: CallbackContext) -> str:
-    message = update.effective_message
-    user = update.effective_user
-    chat = update.effective_chat
-    bot, args = context.bot, context.args
-    user_id = extract_user(message, args)
-    user_member = bot.getChat(user_id)
-    rt = ""
-
-    reply = check_user_id(user_id, bot)
-    if reply:
-        message.reply_text(reply)
-        return ""
-
-    with open(ELEVATED_USERS_FILE, 'r') as infile:
-        data = json.load(infile)
-
-    if user_id in DRAGONS:
-        rt += "This member is a Yonko, Demoting to Bounty Hunter."
-        data['sudos'].remove(user_id)
-        DRAGONS.remove(user_id)
-
-    if user_id in DEMONS:
-        rt += "This user is already a Warlord, Demoting to Bounty Hunter."
-        data['supports'].remove(user_id)
-        DEMONS.remove(user_id)
-
-    if user_id in WOLVES:
-        rt += "This user is already a New generations Disaster, Demoting to Bounty Hunter."
-        data['whitelists'].remove(user_id)
-        WOLVES.remove(user_id)
-
-    if user_id in TIGERS:
-        message.reply_text("This user is already a Bounty Hunter.")
-        return ""
-
-    data['tigers'].append(user_id)
-    TIGERS.append(user_id)
-
-    with open(ELEVATED_USERS_FILE, 'w') as outfile:
-        json.dump(data, outfile, indent=4)
-
-    update.effective_message.reply_text(
-        rt +
-        f"\nSuccessfully promoted {user_member.first_name} to a Bounty Hunte!"
-    )
-
-    log_message = (
-        f"#TIGER\n"
         f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))} \n"
         f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
     )
@@ -402,7 +397,7 @@ def removesudo(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DRAGONS:
-        message.reply_text("Requested HA to demote this user to Civilian")
+        message.reply_text("Requested SG to demote this user to Normal Human")
         DRAGONS.remove(user_id)
         data['sudos'].remove(user_id)
 
@@ -422,7 +417,7 @@ def removesudo(update: Update, context: CallbackContext) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a Dragon Disaster!")
+        message.reply_text("This user is not a S-RANK Hunter!")
         return ""
 
 
@@ -446,7 +441,7 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         data = json.load(infile)
 
     if user_id in DEMONS:
-        message.reply_text("Requested HA to demote this user to Civilian")
+        message.reply_text("Requested SG to demote this user to Normal Human")
         DEMONS.remove(user_id)
         data['supports'].remove(user_id)
 
@@ -465,8 +460,9 @@ def removesupport(update: Update, context: CallbackContext) -> str:
         return log_message
 
     else:
-        message.reply_text("This user is not a Demon level Disaster!")
+        message.reply_text("This user is not a A-RANK HUNTER!")
         return ""
+
 
 
 @run_async
@@ -507,7 +503,7 @@ def removewhitelist(update: Update, context: CallbackContext) -> str:
 
         return log_message
     else:
-        message.reply_text("This user is not a Wizard Wolf Disaster!")
+        message.reply_text("This user is not a C-RANK HUNTER!")
         return ""
 
 
@@ -543,12 +539,13 @@ def removetiger(update: Update, context: CallbackContext) -> str:
             f"<b>Admin:</b> {mention_html(user.id, html.escape(user.first_name))}\n"
             f"<b>User:</b> {mention_html(user_member.id, html.escape(user_member.first_name))}"
         )
+
         if chat.type != 'private':
             log_message = f"<b>{html.escape(chat.title)}:</b>\n" + log_message
 
         return log_message
     else:
-        message.reply_text("This user is not a Wizard Tiger Disaster!")
+        message.reply_text("This user is not a B-RANK HUNTER!")
         return ""
 
 
