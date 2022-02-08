@@ -77,7 +77,7 @@ PM_START_TEXT = """
     ✧  -------------------------------  
 𝐖𝐚𝐧𝐭 𝐭𝐨 𝐬𝐞𝐞 𝐦𝐲 𝐚𝐛𝐢𝐥𝐢𝐭𝐢𝐞𝐬? 
   𝐭𝐲𝐩𝐞 /help 
- --------------------------------[.](https://telegra.ph/file/c5248c36097725bf00358.mp4)
+ --------------------------------[.](https://telegra.ph/file/8a49ce92427b3b9ef2006.jpg)
 """
 HELP_STRINGS = """
 Hey I am Jinwoo!
@@ -233,7 +233,7 @@ def start(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(
                                 text=" ♦️ Disasters ♠️ ",
-                                url="https://t.me/JinwooXupdates/2",
+                                url="https://t.me/JinWooXupdate/2",
                             ),
                             InlineKeyboardButton(
                                 text="♦️Join Our Fed♠️",
