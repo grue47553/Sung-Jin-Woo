@@ -17,7 +17,7 @@ from SaitamaRobot import (
     SUPPORT_CHAT,
     dispatcher,
     StartTime,
-    telethn, 
+    telethn,
     updater,
     pbot)
 
