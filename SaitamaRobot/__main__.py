@@ -72,15 +72,15 @@ def get_readable_time(seconds: int) -> str:
 
 
 PM_START_TEXT = """
-𝐇𝐢, 𝐈 𝐚𝐦 𝐉𝐢𝐧 𝐖𝐨𝐨 𝐓𝐡𝐞 𝐌𝐨𝐧𝐚𝐫𝐜𝐡 𝐎𝐟 𝐒𝐡𝐚𝐝𝐨𝐰𝐬.
- 𝐈 𝐰𝐢𝐥𝐥 𝐛𝐞 𝐩𝐫𝐨𝐭𝐞𝐜𝐭𝐢𝐧𝐠 𝐲𝐨𝐮𝐫 𝐠𝐫𝐨𝐮𝐩 𝐟𝐫𝐨𝐦 𝐌𝐨𝐧𝐬𝐭𝐞𝐫𝐬 𝐨𝐟 𝐝𝐮𝐧𝐠𝐞𝐨𝐧 𝐰𝐢𝐭𝐡 𝐦𝐲 𝐊𝐚𝐦𝐢𝐬𝐡'𝐬 𝐖𝐫𝐚𝐭𝐡 
+Hi, I am serafall : )
+I will protect your groups ;) 
     ✧  -------------------------------  
 𝐖𝐚𝐧𝐭 𝐭𝐨 𝐬𝐞𝐞 𝐦𝐲 𝐚𝐛𝐢𝐥𝐢𝐭𝐢𝐞𝐬? 
   𝐭𝐲𝐩𝐞 /help 
- --------------------------------[.](https://telegra.ph/file/8a49ce92427b3b9ef2006.jpg)
+ 
 """
 HELP_STRINGS = """
-Hey I am Jinwoo!
+Hey I am Serafall!
 To make me functional, make sure that i have enough rights in your group.
 Helpful commands:
 - /start: Starts me! You've probably already used this.
@@ -95,9 +95,6 @@ List of all the Modules: [.](https://telegra.ph/file/c5248c36097725bf00358.mp4)
     "" if not ALLOW_EXCL else "📝All commands can either be used with / or !.",
 )
 
-EREN_IMG = "https://telegra.ph/file/c5248c36097725bf00358.mp4"
-
-DONATE_STRING = """Durov Is my Cousin By The Way.."""
 
 IMPORTED = {}
 MIGRATEABLE = []
@@ -215,40 +212,12 @@ def start(update: Update, context: CallbackContext):
                         [
                             InlineKeyboardButton(
                                 text="➕ Add me in your Groups ➕",
-                                url="t.me/{}?startgroup=true".format(
+                                url="http://t.me/SerafallRombot?startgroup=true".format(
                                     context.bot.username,
                                 ),
                             ),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="♠️ Support ♦️",
-                                url=f"https://t.me/{SUPPORT_CHAT}",
-                            ),
-                            InlineKeyboardButton(
-                                text="💜 Anime Chat❤️",
-                                url="https://t.me/straydogs",
-                            ),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text=" ♦️ Disasters ♠️ ",
-                                url="https://t.me/JinWooXupdate/2",
-                            ),
-                            InlineKeyboardButton(
-                                text="♦️Join Our Fed♠️",
-                                url="https://t.me/ahjinwoo/",
-                            ),
-                        ],
-                        [
-                            InlineKeyboardButton(
-                                text="♦️ Help ♠️",
-                                url="https://t.me/NicoRobin_strawhatbot?start=help",
-                            ),
-                        ],
-                    ],
-                ),
-            )
+                        ]
+                        
     else:
         update.effective_message.reply_text(
             "I am awake Baka!\n<b>Haven't slept since:</b> <code>{}</code>".format(
